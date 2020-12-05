@@ -73,7 +73,23 @@ body {
   width: 3.5rem;
   border-radius: 50%;
   background-color: var(--color-primary);
-  transform: translateY(0.8rem); }
+  transform: translateY(0.8rem);
+  z-index: 1000; }
+
+.add-movie-container:hover .hover-btn {
+  opacity: 1; }
+
+.hover-btn {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  border-radius: 10rem;
+  padding-left: 3rem;
+  padding-right: 2rem;
+  height: 3.5rem;
+  transform: translate(-3rem, 0.8rem);
+  background-color: var(--color-primary);
+  transition: all .2s linear; }
 
 .notification-active {
   position: absolute;
@@ -201,11 +217,18 @@ body {
   font-size: 1.3rem;
   color: white; }
 
+.genre-alt {
+  margin-bottom: 3rem; }
+
 .movie-info-down-arrow {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 4rem); }
+
+.match {
+  color: white;
+  font-size: 1.3rem; }
 
 .container {
   max-width: 1500px; }
@@ -223,6 +246,10 @@ body {
 
 .flex {
   display: flex; }
+
+.flex-center {
+  display: flex;
+  align-items: center; }
 
 .links {
   display: flex;
@@ -282,6 +309,9 @@ body {
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9) 50%);
   outline: none; }
 
+.fade-shadow-alt {
+  background-image: linear-gradient(to bottom, transparent, black 90%); }
+
 .engagement-buttons {
   display: flex;
   align-items: center;
@@ -299,6 +329,12 @@ body {
   .play-button:hover {
     filter: brightness(100%); }
 
+.play-button-alt {
+  position: relative;
+  display: inline-block;
+  margin-bottom: -1rem;
+  left: 2rem; }
+
 .movie-info {
   position: absolute;
   bottom: 1.5rem;
@@ -313,6 +349,17 @@ body {
 
 .hover-items {
   opacity: 0;
-  transition: all .3s linear; }
+  transition: all .2s linear; }
   .hover-items:hover {
     cursor: pointer; }
+
+.like-button-container {
+  position: absolute;
+  bottom: 9rem;
+  right: 2rem; }
+
+.down-arrow-big-alt {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  transform: translateY(-3.5rem); }

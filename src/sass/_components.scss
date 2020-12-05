@@ -55,6 +55,25 @@
     border-radius: 50%;
     background-color: var(--color-primary);
     transform: translateY(.8rem);
+    z-index: 1000;
+}
+
+
+.add-movie-container:hover .hover-btn {
+    opacity: 1;
+}
+
+.hover-btn {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    padding-left: 3rem;
+    padding-right: 2rem;
+    height: 3.5rem;
+    transform: translate(-3rem, .8rem);
+    background-color: var(--color-primary);
+    transition: all .2s linear;
 }
 
 .notification-active {
@@ -210,10 +229,19 @@
     color: white;
 }
 
+.genre-alt {
+    margin-bottom: 3rem;
+}
+
 .movie-info-down-arrow {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 4rem);
 
+}
+
+.match {
+    color: white;
+    font-size: 1.3rem;
 }

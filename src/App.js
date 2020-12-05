@@ -110,6 +110,37 @@ function App() {
             <div className="flex-four">
               <div className="popular-movie-box coming-soon-movie-box">
                 <img src={popularMovie} alt="Proximamente" className="popular-movie-img"/>
+                <div className="hover-items">
+                  <div className="fade-shadow fade-shadow-alt"></div>
+                  <div className="movie-info">
+                  <div className="play-button play-button-alt">
+                    <img src={playCircle} alt="Play" className="play"/>
+                  </div>
+                    <div className="movie-info-name">Stranger Things</div>
+                      <div className="match general-info-margin">
+                        98% Coincidencia
+                      </div>
+                    <div className="general-info">
+                      <div className="age-restriction general-info-margin">
+                        +16
+                      </div>
+                      <div className="duration general-info-margin">
+                        1h 30 min
+                      </div>
+                    </div>
+                    <div className="genre genre-alt">
+                      Suspenso
+                    </div>
+                  </div>
+                    <div className="down-arrow-big-alt">
+                      <img src={chivronDown} alt="Down arrow" className="down-arrow-big"/>
+                    </div>
+                  <div className="like-button-container">
+                    <div className="like-circle engagement-btn">
+                      <img src={like} alt="Like" className="like"/>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="popular-movie-box coming-soon-movie-box">
                 <img src={popularMovie} alt="Proximamente" className="popular-movie-img"/>

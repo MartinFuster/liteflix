@@ -19,6 +19,11 @@
     display: flex;
 }
 
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
 .links {
     display: flex;
     align-items: flex-end;
@@ -88,6 +93,10 @@
     outline: none;
 }
 
+.fade-shadow-alt {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1) 90%);
+}
+
 .engagement-buttons {
     display: flex;
     align-items: center;
@@ -109,6 +118,13 @@
     }
 }
 
+.play-button-alt {
+    position: relative;
+    display: inline-block;
+    margin-bottom: -1rem;
+    left: 2rem;
+}
+
 .movie-info {
     position: absolute;
     bottom: 1.5rem;
@@ -125,8 +141,21 @@
 
 .hover-items {
     opacity: 0;
-    transition: all .3s linear;
+    transition: all .2s linear;
     &:hover {
         cursor: pointer;
     }
+}
+
+.like-button-container {
+    position: absolute;
+    bottom: 9rem;
+    right: 2rem;
+}
+
+.down-arrow-big-alt {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    transform: translateY(-3.5rem);
 }
