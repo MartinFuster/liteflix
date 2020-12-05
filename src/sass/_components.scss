@@ -1,0 +1,135 @@
+.featured-img {
+    height: 88vh;
+    width: 100%;
+    object-fit: cover;
+    -webkit-mask-image: -webkit-gradient(to top, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+.featured-img-shadow {
+    position: absolute;
+    top: 0;
+    height: 88vh;
+    width: 100vw;  
+    background-image: linear-gradient(to top, transparent 77%, #000000);
+    outline: none;
+}
+
+.logo {
+    margin-right: 2rem;
+    z-index: 10;
+}
+
+.link {
+    position: relative;
+    font-family: "Montserrat";
+    font-size: 1.4rem;
+    color: white;
+    margin-right: 1.8rem;
+    margin-top: -.35rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.active {
+    font-weight: 700;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    transform: translateY(.8rem);
+}
+
+.notification-active {
+    position: absolute;
+    top: 22.5%;
+    right: 0;
+    height: .7rem;
+    width: .7rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+.profile-picture {
+    margin-right: 1rem;
+}
+
+.profile-section {
+    transform: translateY(.3rem);
+}
+
+.featured-title {
+    font-family: "Montserrat";
+    font-size: 2.4rem;
+    color: white;
+    z-index: 10;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.featured-movie-name {
+    font-family: "Roboto Slab";
+    font-weight: 700;
+    font-size: 11rem;
+    max-width: 40rem;
+    line-height: 9rem;
+    margin-top: 1.8rem;
+}
+
+.featured-movie-btn {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 15.5rem;
+    padding-right: 5rem;
+    padding-left: 1.2rem;
+    border-radius: 10rem;
+    margin-right: 3rem;
+    font-size: 1.6rem;
+    font-family: "Montserrat";
+    color: white;
+    background-color: rgba(0,0,0,.6);
+    border: none;
+    z-index: 10;
+    transition: all .2s;
+
+    &:focus, &:active {
+        outline: none;
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+    }
+}
+
+.featured-movie-icon {
+    margin-right: 0.6rem;
+}
+
+.featured-movie-title-small {
+    font-weight: 700;
+    z-index: 10;
+}
+
+.featured-movie-text {
+    font-weight: 400;
+    z-index: 10;
+}
+
+.coming-soon-title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+}

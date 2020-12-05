@@ -1,0 +1,58 @@
+.container {
+    max-width: 1400px;
+}
+
+.home {
+    background-image: url("./images/destacada-demo-img.jpeg");
+    min-width: 100vw;
+    max-height: 93vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.nav {
+    display: flex;
+    padding-top: 2.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.links {
+    display: flex;
+    align-items: flex-end;
+    z-index: 10;
+}
+
+.links-right {
+    display: flex;
+    align-items: flex-end;
+    margin-left: auto;
+    z-index: 10;
+}
+
+.movie-info-box {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 11rem;
+}
+
+.featured-movie-buttons {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.featured-movie-resume-box {
+    font-family: "Montserrat";
+    font-size: 1.8rem;
+    color: white;
+    z-index: 10;
+    max-width: 55rem;
+    margin-top: 2.5rem;
+}
+
+.coming-soon-box {
+    margin-top: 10rem;
+}
