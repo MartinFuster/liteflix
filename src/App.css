@@ -139,8 +139,21 @@ body {
   margin-bottom: 2rem;
   color: white; }
 
+.coming-soon-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; }
+
+.popular-title {
+  margin-bottom: .9rem; }
+
+.popular-movie-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; }
+
 .container {
-  max-width: 1400px; }
+  max-width: 1500px; }
 
 .home {
   background-image: url("./images/destacada-demo-img.jpeg");
@@ -187,3 +200,17 @@ body {
 
 .coming-soon-box {
   margin-top: 10rem; }
+
+.flex-four {
+  display: flex;
+  flex-wrap: wrap; }
+
+.coming-soon-movie-box {
+  flex: 1 0 21%;
+  margin-bottom: 4rem;
+  margin-right: 3rem; }
+
+.popular-movie-box {
+  height: 60rem;
+  background-repeat: no-repeat;
+  margin-bottom: 4rem; }

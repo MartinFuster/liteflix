@@ -5,6 +5,7 @@ import featuredImgInit from "./images/destacada-demo-img.jpeg";
 import play from "./images/play-icon.svg";
 import plus from "./images/plus-icon.svg";
 import comingSoonMovie from "./images/proximamente-demo-img.png";
+import popularMovie from "./images/populares-demo-img.png";
 
 function App() {
 
@@ -46,21 +47,48 @@ function App() {
               </div>
             </div>
 
-            <div className="coming-soon-box">
-            <div className="coming-soon-title">
-              Proximamente
-            </div>
-            <div className="flex-4">
+          <div className="coming-soon-box">
+            <h2 className="coming-soon-title">
+              Próximamente
+            </h2>
+            <div className="flex-four">
               <div className="coming-soon-movie-box">
-                <img src={comingSoonMovie} alt="Proximamente"/>
+                <img src={comingSoonMovie} alt="Proximamente" className="coming-soon-img"/>
+              </div>
+              <div className="coming-soon-movie-box">
+                <img src={comingSoonMovie} alt="Proximamente" className="coming-soon-img"/>
+              </div>
+              <div className="coming-soon-movie-box">
+                <img src={comingSoonMovie} alt="Proximamente" className="coming-soon-img"/>
+              </div>
+              <div className="coming-soon-movie-box">
+                <img src={comingSoonMovie} alt="Proximamente" className="coming-soon-img"/>
               </div>
             </div>
           </div>
+
+          <div className="popular-box">
+            <h2 className="popular-title coming-soon-title">
+              POPULARES DE LITEFLIX
+            </h2>
+            <div className="flex-four">
+              <div className="popular-movie-box coming-soon-movie-box">
+                <img src={popularMovie} alt="Proximamente" className="popular-movie-img"/>
+              </div>
+              <div className="popular-movie-box coming-soon-movie-box">
+                <img src={popularMovie} alt="Proximamente" className="popular-movie-img"/>
+              </div>
+              <div className="popular-movie-box coming-soon-movie-box">
+                <img src={popularMovie} alt="Proximamente" className="popular-movie-img"/>
+              </div>
+              <div className="popular-movie-box coming-soon-movie-box">
+                <img src={popularMovie} alt="Proximamente" className="popular-movie-img"/>
+              </div>
+            </div>
+          </div>
+
           </div>
       </div>
-        <div className="container">
-          
-        </div>
     </div>
   );
 }
