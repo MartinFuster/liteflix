@@ -63,13 +63,70 @@
 }
 
 .coming-soon-movie-box {
+    position: relative;
     flex: 1 0 21%;
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
     margin-right: 3rem;
+}
+
+.coming-soon-movie-box:hover .hover-items {
+    opacity: 1;
 }
 
 .popular-movie-box {
     height: 68rem;
     background-repeat: no-repeat;
     margin-bottom: 4rem;
+}
+
+.fade-shadow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;  
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9) 50%);
+    outline: none;
+}
+
+.engagement-buttons {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: brightness(70%);
+    transition: all .3s linear;
+
+    &:hover {
+        filter: brightness(100%);
+    }
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+
+.general-info {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    line-height: 0;
+}
+
+.hover-items {
+    opacity: 0;
+    transition: all .3s linear;
+    &:hover {
+        cursor: pointer;
+    }
 }

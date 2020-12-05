@@ -9,9 +9,9 @@
 .featured-img-shadow {
     position: absolute;
     top: 0;
-    height: 88vh;
+    height: 93vh;
     width: 100vw;  
-    background-image: linear-gradient(to top, transparent 77%, #000000);
+    background-image: linear-gradient(to top, transparent 77%, rgba(0,0,0,0.8));
     outline: none;
 }
 
@@ -148,4 +148,63 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.like {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.like-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: white 1px solid;
+    height: 3.2rem;
+    width: 3.2rem;
+}
+
+.engagement-btn {
+    margin-right: 1rem;
+    filter: brightness(70%);
+    transition: all .3s linear;
+
+    &:hover {
+        filter: brightness(100%);
+    }
+}
+
+.movie-info-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    line-height: 2.5rem;
+}
+
+.general-info-margin {
+    margin-right: 1rem;
+}
+
+.age-restriction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 1.6rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+}
+
+.genre {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.movie-info-down-arrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 4rem);
+
 }
