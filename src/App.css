@@ -43,7 +43,12 @@ body {
 
 .logo {
   margin-right: 2rem;
-  z-index: 10; }
+  z-index: 10;
+  filter: brightness(90%);
+  transition: all .2s linear; }
+  .logo:hover {
+    cursor: pointer;
+    filter: brightness(100%); }
 
 .link {
   position: relative;
@@ -51,9 +56,11 @@ body {
   font-size: 1.4rem;
   color: white;
   margin-right: 1.8rem;
-  margin-top: -.35rem; }
+  margin-top: -.35rem;
+  transition: all .2s linear; }
   .link:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    transform: translateY(-0.2rem); }
 
 .active {
   font-weight: 700; }
