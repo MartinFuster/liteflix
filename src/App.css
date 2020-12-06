@@ -147,9 +147,10 @@ body {
   font-family: "Roboto Slab";
   font-weight: 700;
   font-size: 11rem;
-  max-width: 40rem;
+  max-width: 80rem;
   line-height: 9rem;
-  margin-top: 1.8rem; }
+  margin-top: 1rem;
+  margin-bottom: 4rem; }
 
 .featured-movie-btn {
   display: flex;
@@ -262,12 +263,32 @@ body {
   max-width: 1500px;
   position: relative; }
 
+.align-center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh; }
+
 .home {
-  background-image: url("./images/destacada-demo-img.jpeg");
+  position: relative;
+  min-width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(80%); }
+
+.recommended {
+  min-width: 100vw;
+  height: 100vh;
+  padding: 8rem 0; }
+
+.home-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   min-width: 100vw;
   max-height: 93vh;
-  background-size: cover;
-  background-repeat: no-repeat; }
+  background-size: cover; }
 
 .nav {
   display: flex;
@@ -323,10 +344,7 @@ body {
   border-radius: 1rem; }
 
 .movie-info-box {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  margin-top: 11rem; }
+  color: white; }
 
 .featured-movie-buttons {
   display: flex;
@@ -339,9 +357,6 @@ body {
   z-index: 10;
   max-width: 55rem;
   margin-top: 2.5rem; }
-
-.coming-soon-box {
-  margin-top: 10.8rem; }
 
 .flex-four {
   display: flex;

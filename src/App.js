@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import featuredImgInit from "./images/destacada-demo-img.jpeg";
@@ -8,20 +8,47 @@ import comingSoonMovie from "./images/proximamente-demo-img.png";
 import popularMovie from "./images/populares-demo-img.png";
 import SmallPreview from './components/SmallPreview';
 import LargePreview from './components/LargePreview';
+import axios from "axios";
 
 function App() {
 
-  const description = "Lorem ipsum dolor amet chicharrones dreamcatcher hammock bushwick hell of, ethical 3 wolf moon celiac neutra mumblecore four dollar toast. Slow-carb post-ironic kickstarter synth franzen."
+  const [featuredImg, setFeaturedImg] = useState("");
+  const [featuredMovieName, setFeaturedMovieName] = useState("");
+  const [movieDescription, setMovieDescription] = useState("");
 
-  const [featuredImg, setFeaturedImg] = useState(featuredImgInit);
-  const [featuredMovieName, setFeaturedMovieName] = useState("Kids at school");
-  const [movieDescription, setMovieDescription] = useState(description)
+  setTimeout(() => {
+  const home = document.getElementById("home");
+  home.style.backgroundImage = featuredImg;
+  }, 1000);
+
+  useEffect(() => {
+    axios
+      .get("https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20")
+      .then(function (res) {
+        // API call to get the featured movie
+        const data = res.data;
+        const title = data.results[19].original_title;
+        const overview = data.results[19].overview;
+        const linkData = data.results[19].backdrop_path;
+        const link = "(https://image.tmdb.org/t/p/original/"+linkData+")";
+        const fullLink = "url"+link;
+        setFeaturedImg(fullLink);
+        setFeaturedMovieName(title);
+        setMovieDescription(overview);
+      })
+      .catch(function (err) {
+        alert("There has been an error.");
+      });
+  }, []);
+
   return (
     <div className="App">
-      <div className="home">
+      <div className="home" id="home">
         <div className="featured-img-shadow"></div>
-          <div className="container">
-            <Navbar />
+        <div className="container">
+        <Navbar />
+        </div>
+          <div className="container align-center-container">
             <div className="movie-info-box">
               <div className="featured-title">
                 ORIGINAL DE <span className="bold">LITEFLIX</span>
@@ -48,7 +75,10 @@ function App() {
                 </div>
               </div>
             </div>
-
+          </div>
+      </div>
+      <div className="recommended">
+      <div className="container">
           <div className="coming-soon-box">
             <h2 className="coming-soon-title">
               Próximamente
@@ -72,9 +102,8 @@ function App() {
               <LargePreview movie={popularMovie} genre="Suspenso" title="Stranger Things"/>
             </div>
           </div>
-
           </div>
-      </div>
+          </div>
     </div>
   );
 }

@@ -3,12 +3,35 @@
     position: relative;
 }
 
+.align-center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh;
+}
+
 .home {
-    background-image: url("./images/destacada-demo-img.jpeg");
+    position: relative;
+    min-width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(80%); // Otherwise i cant see the text correctly.
+}
+
+.recommended {
+    min-width: 100vw;
+    height: 100vh;
+    padding: 8rem 0;
+}
+
+.home-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     min-width: 100vw;
     max-height: 93vh;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .nav {
@@ -75,10 +98,7 @@
 }
 
 .movie-info-box {
-    display: flex;
-    flex-direction: column;
     color: white;
-    margin-top: 11rem;
 }
 
 .featured-movie-buttons {
@@ -93,10 +113,6 @@
     z-index: 10;
     max-width: 55rem;
     margin-top: 2.5rem;
-}
-
-.coming-soon-box {
-    margin-top: 10.8rem;
 }
 
 .flex-four {
