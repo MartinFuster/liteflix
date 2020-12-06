@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>846BE384-1515-4EA6-89AB-AC977DF28C16</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-73.8%" y="-42.3%" width="248.5%" height="184.6%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="25" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Maquetas" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-hovers" transform="translate(-1123.000000, -86.000000)" fill="#4A4A4A">
+            <g id="Drop-Down" filter="url(#filter-1)" transform="translate(1145.000000, 62.000000)">
+                <g id="user-03" transform="translate(10.000000, 57.000000)">
+                    <path d="M19.3048786,21.957772 L16.7421503,20.4781846 C16.5914532,20.3911191 16.498595,20.2303287 16.498595,20.0562854 L16.498595,17.045942 L13,15.0623926 L13,21.88905 C13,22.1789466 13.1546466,22.4468135 13.40575,22.5918057 L19.3049663,25.9976303 L19.3049663,21.957772 L19.3048786,21.957772 Z M22.7608185,17.0437478 L22.7608185,20.0568998 C22.7608185,20.230592 22.6681358,20.3912068 22.5176142,20.4781846 L19.9507609,21.960054 L19.9507609,26 L25.8537513,22.5918935 C26.1048546,22.4469013 26.2595012,22.1790344 26.2595012,21.8891377 L26.2595012,15.0602862 L22.7608185,17.0437478 Z M16.8989911,16.490987 L19.3862392,15.0550201 C19.5369363,14.9681301 19.7224772,14.9681301 19.8731742,15.0549323 L22.337866,16.4779096 L25.8717436,14.4782987 L20.0354567,11.10881 C19.7844411,10.96373 19.4750601,10.96373 19.2240445,11.10881 L13.3799463,14.4828626 L16.8989911,16.490987 Z" id="Fill-1"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

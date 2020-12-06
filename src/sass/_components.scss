@@ -92,6 +92,43 @@
 
 .profile-section {
     transform: translateY(.3rem);
+
+    &:hover {
+        transform: translateY(.3rem);
+    }
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+    padding: .6rem;
+    border-radius: 1.8rem;
+    color: #9b9b9b;
+    transition: all .2s linear;
+
+    &:hover {
+        cursor: pointer;
+        color: black;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+
+.user-active {  
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.option {
+    margin: .6rem 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.hr {
+    margin: 0;
 }
 
 .featured-title {
@@ -99,6 +136,7 @@
     font-size: 2.4rem;
     color: white;
     z-index: 10;
+    max-width: 40rem;
 }
 
 .bold {

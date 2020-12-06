@@ -3,9 +3,12 @@ import logo from "../images/liteflix-logo.svg";
 import plus from "../images/plus-icon.svg";
 import bell from "../images/bell-icon.svg";
 import profilePicture from "../images/main-profile-img.svg";
+import profilePictureTwo from "../images/user-2.svg";
+import profilePictureDefault from "../images/user-default.svg";
 import chivronDown from "../images/chivron-down.svg";
 
 function Navbar() {
+
     return( 
                 <nav className="nav">
                     <div className="logo">
@@ -23,8 +26,8 @@ function Navbar() {
                                 <img src={plus} alt="plus icon"/>
                             </div>
                             <div className="hover-btn">
-                                Agregar Pelicula
-                                </div>
+                                Agregar Película
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -40,6 +43,32 @@ function Navbar() {
                                 <img src={profilePicture} alt="profile" className="profile-picture"/>
                                 <img src={chivronDown} alt="down arrow"/>
                             </div>
+                        <div className="profile-section-hover" id="profileSectionHover">
+                            <div className="triangle-up"></div>
+                                    <div className="user user-active">
+                                            <img src={profilePictureTwo} alt="profile" className="profile-picture"/>
+                                        Ernesto G...
+                                    </div>
+                                    <div className="user">
+                                        <img src={profilePictureDefault} alt="profile" className="profile-picture"/>
+                                        User 03
+                                    </div>
+                                    <div className="user">
+                                        <img src={profilePictureDefault} alt="profile" className="profile-picture"/>
+                                        User 04
+                                    </div>
+                                    <div className="option u-margin-top-1">
+                                        Configuración
+                                    </div>
+                                    <hr className="hr"/>
+                                    <div className="option">
+                                        Ayuda
+                                    </div>
+                                    <hr className="hr"/>
+                                    <div className="option bold">
+                                        Log Out
+                                    </div>
+                                </div>
                         </div>
                 </nav>
             

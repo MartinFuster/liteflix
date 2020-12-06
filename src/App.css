@@ -105,12 +105,40 @@ body {
 
 .profile-section {
   transform: translateY(0.3rem); }
+  .profile-section:hover {
+    transform: translateY(0.3rem); }
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+  padding: .6rem;
+  border-radius: 1.8rem;
+  color: #9b9b9b;
+  transition: all .2s linear; }
+  .user:hover {
+    cursor: pointer;
+    color: black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
+
+.user-active {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  color: black; }
+
+.option {
+  margin: .6rem 0; }
+  .option:hover {
+    cursor: pointer; }
+
+.hr {
+  margin: 0; }
 
 .featured-title {
   font-family: "Montserrat";
   font-size: 2.4rem;
   color: white;
-  z-index: 10; }
+  z-index: 10;
+  max-width: 40rem; }
 
 .bold {
   font-weight: 700; }
@@ -231,7 +259,8 @@ body {
   font-size: 1.3rem; }
 
 .container {
-  max-width: 1500px; }
+  max-width: 1500px;
+  position: relative; }
 
 .home {
   background-image: url("./images/destacada-demo-img.jpeg");
@@ -261,6 +290,37 @@ body {
   align-items: flex-end;
   margin-left: auto;
   z-index: 10; }
+
+.profile-section:hover + .profile-section-hover {
+  opacity: 1;
+  visibility: visible; }
+
+.profile-section-hover {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  right: 3.3rem;
+  top: 7rem;
+  background-color: white;
+  padding: 1.1rem 1.1rem 0.5rem 1.1rem;
+  border-radius: .5rem;
+  font-size: 1.2rem;
+  transition: all .3s linear; }
+  .profile-section-hover:hover {
+    opacity: 1;
+    visibility: visible; }
+
+.triangle-up {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  transform: translateY(-0.6rem);
+  height: 0;
+  width: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-bottom: 1rem solid white;
+  border-radius: 1rem; }
 
 .movie-info-box {
   display: flex;
@@ -363,3 +423,6 @@ body {
   justify-content: center;
   min-width: 100%;
   transform: translateY(-3.5rem); }
+
+.u-margin-top-1 {
+  margin-top: 1rem; }

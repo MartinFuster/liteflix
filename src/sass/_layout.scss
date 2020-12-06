@@ -1,5 +1,6 @@
 .container {
     max-width: 1500px;
+    position: relative;
 }
 
 .home {
@@ -35,6 +36,42 @@
     align-items: flex-end;
     margin-left: auto;
     z-index: 10;
+}
+
+.profile-section:hover + .profile-section-hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-section-hover {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 3.3rem;
+    top: 7rem;
+    background-color: white;
+    padding: 1.1rem 1.1rem 0.5rem 1.1rem;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    transition: all .3s linear;
+
+    &:hover {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.triangle-up {
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    transform: translateY(-.6rem);
+    height: 0;
+    width: 0;
+    border-left: 1.5rem solid transparent;
+    border-right: 1.5rem solid transparent;
+    border-bottom: 1rem solid white;
+    border-radius: 1rem;
 }
 
 .movie-info-box {
