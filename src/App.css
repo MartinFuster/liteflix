@@ -350,6 +350,7 @@ body {
 .coming-soon-movie-box {
   position: relative;
   flex: 1 0 21%;
+  max-width: 33.5rem;
   margin-bottom: 8rem;
   margin-right: 3rem; }
 
