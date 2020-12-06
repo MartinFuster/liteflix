@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import featuredImgInit from "./images/destacada-demo-img.jpeg";
 import play from "./images/play-icon.svg";
 import plus from "./images/plus-icon.svg";
-import comingSoonMovie from "./images/proximamente-demo-img.png";
-import popularMovie from "./images/populares-demo-img.png";
 import SmallPreview from './components/SmallPreview';
 import LargePreview from './components/LargePreview';
 import axios from "axios";
@@ -104,7 +101,7 @@ function App() {
               </div>
               <div className="featured-movie-resume-box">
                 <div className="featured-movie-title-small">
-                  Ver Temporada 1
+                  Descripción
                 </div>
                 <div className="featured-movie-text">
                   {movieDescription}
@@ -123,7 +120,8 @@ function App() {
               {upcoming.map((object, i) => {
               const linkData = object.poster_path;
               const link = "https://image.tmdb.org/t/p/original/"+linkData;
-                return <SmallPreview movie={link} genre={"Suspenso"} title={object.original_title} id={i} />
+              const genreID = object.genre_ids[0];
+                return <SmallPreview movie={link} genreID={genreID} title={object.original_title} id={i} />
               })}
             </div>
           </div>
@@ -136,7 +134,8 @@ function App() {
             {popular.map((object, i) => {
               const linkData = object.poster_path;
               const link = "https://image.tmdb.org/t/p/original/"+linkData;
-                return <LargePreview movie={link} genre={"Suspenso"} title={object.original_title} id={i} />
+              const genreID = object.genre_ids[0];
+                return <LargePreview movie={link} genreID={genreID} title={object.original_title} id={i} />
               })}
             </div>
           </div>
