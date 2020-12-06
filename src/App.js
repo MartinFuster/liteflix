@@ -24,11 +24,29 @@ function App() {
     axios
       .get("https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20")
       .then(function (res) {
-        // API call to get the featured movie
+        // API call to get the featured movie (most current one)
+        // if they are the same date i use the one with the best ranking
         const data = res.data;
-        const title = data.results[19].original_title;
-        const overview = data.results[19].overview;
-        const linkData = data.results[19].backdrop_path;
+        let mostCurrentMovie = {};
+        let max = 0;
+        let votes = 0;
+        data.results.forEach(obj => {
+          const date = new Date(obj.release_date);
+          if (date.valueOf() > max) {
+            mostCurrentMovie = obj;
+            votes = obj.vote_average;
+            max = date.valueOf();
+          } else if (date.valueOf() === max) {
+            if (obj.vote_average > votes) {
+              mostCurrentMovie = obj;
+              votes = obj.vote_average;
+              max = date.valueOf();
+            }
+          }
+        });
+        const title = mostCurrentMovie.original_title;
+        const overview = mostCurrentMovie.overview;
+        const linkData = mostCurrentMovie.backdrop_path;
         const link = "(https://image.tmdb.org/t/p/original/"+linkData+")";
         const fullLink = "url"+link;
         setFeaturedImg(fullLink);
