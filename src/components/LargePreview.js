@@ -110,9 +110,10 @@ function LargePreview(props) {
                       </div>
                     <div className="general-info">
                       <div className="age-restriction general-info-margin">
-                      {genre !== "Acción" && genre !== "Western" && genre !== "Suspenso"
-                          && genre !== "Drama" ? genre !== "Familia" && genre !== "Comedia" 
-                          && genre !== "Aventura" ? "+13" : "+3" : "+16"}
+                        {genre !== "Acción" && genre !== "Western" && genre !== "Suspenso"
+                          && genre !== "Drama"  && genre !== "Terror" ? genre !== "Familia" 
+                          && genre !== "Comedia" && genre !== "Aventura" && genre !== "Animación" 
+                          ? "+13" : "+3" : "+16"}
                       </div>
                       <div className="duration general-info-margin">
                         {duracionHora}h {duracionMinutos} min

@@ -130,6 +130,7 @@ function App() {
       </div>
       <div className="recommended">
         <div className="container">
+
           <div className="coming-soon-box">
             <h2 className="coming-soon-title">
               Próximamente
@@ -157,6 +158,7 @@ function App() {
               })}
             </div>
           </div>
+
         </div>
       </div>
     </div>
