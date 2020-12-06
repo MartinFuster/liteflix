@@ -15,6 +15,8 @@ function App() {
   const [featuredImg, setFeaturedImg] = useState("");
   const [featuredMovieName, setFeaturedMovieName] = useState("");
   const [movieDescription, setMovieDescription] = useState("");
+  const [upcoming, setUpcoming] = useState([]);
+  const [popular, setPopular] = useState([]);
 
   setTimeout(() => {
   const home = document.getElementById("home");
@@ -35,6 +37,40 @@ function App() {
         setFeaturedImg(fullLink);
         setFeaturedMovieName(title);
         setMovieDescription(overview);
+      })
+      .catch(function (err) {
+        alert("There has been an error.");
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://api.themoviedb.org/3/movie/upcoming?api_key=6f26fd536dd6192ec8a57e94141f8b20")
+      .then(function (res) {
+        // API call to get the upcoming movies (first 4 movies)
+        const data = res.data;
+        let upcomingArray = [];
+        for (let i = 0; i < 4; i++) {
+          upcomingArray = [...upcomingArray, data.results[i]];
+        }
+        setUpcoming(upcomingArray);
+      })
+      .catch(function (err) {
+        alert("There has been an error.");
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20")
+      .then(function (res) {
+        // API call to get the popular movies (first 4 movies)
+        const data = res.data;
+        let popularArray = [];
+        for (let i = 0; i < 4; i++) {
+          popularArray = [...popularArray, data.results[i]];
+        }
+        setPopular(popularArray);
       })
       .catch(function (err) {
         alert("There has been an error.");
@@ -78,16 +114,17 @@ function App() {
           </div>
       </div>
       <div className="recommended">
-      <div className="container">
+        <div className="container">
           <div className="coming-soon-box">
             <h2 className="coming-soon-title">
               Próximamente
             </h2>
             <div className="flex-four">
-              <SmallPreview movie={comingSoonMovie} genre="Suspenso" title="House of Cards"/>
-              <SmallPreview movie={comingSoonMovie} genre="Suspenso" title="House of Cards"/>
-              <SmallPreview movie={comingSoonMovie} genre="Suspenso" title="House of Cards"/>
-              <SmallPreview movie={comingSoonMovie} genre="Suspenso" title="House of Cards"/>
+              {upcoming.map((object, i) => {
+              const linkData = object.poster_path;
+              const link = "https://image.tmdb.org/t/p/original/"+linkData;
+                return <SmallPreview movie={link} genre={"Suspenso"} title={object.original_title} id={i} />
+              })}
             </div>
           </div>
 
@@ -96,14 +133,15 @@ function App() {
               POPULARES DE LITEFLIX
             </h2>
             <div className="flex-four">
-              <LargePreview movie={popularMovie} genre="Suspenso" title="Stranger Things"/>
-              <LargePreview movie={popularMovie} genre="Suspenso" title="Stranger Things"/>
-              <LargePreview movie={popularMovie} genre="Suspenso" title="Stranger Things"/>
-              <LargePreview movie={popularMovie} genre="Suspenso" title="Stranger Things"/>
+            {popular.map((object, i) => {
+              const linkData = object.poster_path;
+              const link = "https://image.tmdb.org/t/p/original/"+linkData;
+                return <LargePreview movie={link} genre={"Suspenso"} title={object.original_title} id={i} />
+              })}
             </div>
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
     </div>
   );
 }

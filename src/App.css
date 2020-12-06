@@ -275,7 +275,7 @@ body {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  filter: brightness(80%); }
+  filter: brightness(90%); }
 
 .recommended {
   min-width: 100vw;
@@ -326,7 +326,8 @@ body {
   padding: 1.1rem 1.1rem 0.5rem 1.1rem;
   border-radius: .5rem;
   font-size: 1.2rem;
-  transition: all .3s linear; }
+  transition: all .3s linear;
+  z-index: 9999; }
   .profile-section-hover:hover {
     opacity: 1;
     visibility: visible; }
@@ -366,14 +367,17 @@ body {
   position: relative;
   flex: 1 0 21%;
   max-width: 33.5rem;
+  max-height: 45rem;
   margin-bottom: 8rem;
-  margin-right: 3rem; }
+  margin-right: 3rem;
+  object-fit: cover; }
 
 .coming-soon-movie-box:hover .hover-items {
   opacity: 1; }
 
 .popular-movie-box {
-  height: 68rem;
+  height: 50rem;
+  max-height: none;
   background-repeat: no-repeat;
   margin-bottom: 4rem; }
 
@@ -432,7 +436,7 @@ body {
 .like-button-container {
   position: absolute;
   bottom: 9rem;
-  right: 2rem; }
+  right: .5rem; }
 
 .down-arrow-big-alt {
   display: flex;
