@@ -7,7 +7,7 @@ import profilePictureTwo from "../images/user-2.svg";
 import profilePictureDefault from "../images/user-default.svg";
 import chivronDown from "../images/chivron-down.svg";
 
-function Navbar() {
+function Navbar(props) {
 
     return( 
                 <nav className="nav">
@@ -20,7 +20,7 @@ function Navbar() {
                         <div className="link">Películas</div>
                         <div className="link">Agregados Recientemente</div>
                         <div className="link">Mi lista</div>
-                        <div className="link">
+                        <div className="link" onClick={() => props.addMovieClicked()} >
                             <div className="flex-center add-movie-container">
                             <div className="circle">
                                 <img src={plus} alt="plus icon"/>

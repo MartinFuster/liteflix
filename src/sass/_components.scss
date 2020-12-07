@@ -337,6 +337,16 @@
     }
 }
 
+.modal-input-option {
+    color: transparent;
+    text-shadow: 0 0 0 black;
+    z-index: 20;
+   
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .modal-btn {
     font-size: 1.6rem;
     color: white;
@@ -371,5 +381,18 @@
     &:hover {
         cursor: pointer;
         transform: rotate(-90deg);
+    }
+}
+
+.category-hr {
+    color: #cccccc;
+    margin: .9rem 0;
+}
+
+.category-name {
+    transition: all .2s linear;
+    &:hover {
+        color: black;
+        cursor: pointer;
     }
 }

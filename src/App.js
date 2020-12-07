@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSpring, animated } from "react-spring";
 import './App.css';
 import Navbar from './components/Navbar';
 import play from "./images/play-icon.svg";
@@ -10,16 +11,17 @@ import clip from "./images/clip.svg";
 
 function App() {
 
-  const [featuredImg, setFeaturedImg] = useState("");
   const [featuredMovieName, setFeaturedMovieName] = useState("");
   const [movieDescription, setMovieDescription] = useState("");
   const [upcoming, setUpcoming] = useState([]);
   const [popular, setPopular] = useState([]);
+  const [addMovieActive, setAddMovieActive] = useState(false);
 
-  setTimeout(() => {
-  const home = document.getElementById("home");
-  home.style.backgroundImage = featuredImg;
-  }, 1000);
+  const addMovieAnimation = useSpring({
+    opacity: addMovieActive ? 1 : 0,
+    visibility: addMovieActive ? "visible" : "hidden",
+  });
+
 
   useEffect(() => {
     axios
@@ -50,7 +52,8 @@ function App() {
         const linkData = mostCurrentMovie.backdrop_path;
         const link = "(https://image.tmdb.org/t/p/original/"+linkData+")";
         const fullLink = "url"+link;
-        setFeaturedImg(fullLink);
+        const home = document.getElementById("home");
+        home.style.backgroundImage = fullLink;
         setFeaturedMovieName(title);
         setMovieDescription(overview);
       })
@@ -93,15 +96,37 @@ function App() {
       });
   }, []);
 
+  function handleCategoryOpen() {
+    const categoryExpanded = document.getElementById("categoryExpanded");
+    setTimeout(() => {
+      categoryExpanded.style.visibility = "visible";
+    }, 50);
+    categoryExpanded.style.opacity = 1;
+  }
+
+  function handleCategoryExit() {
+    const categoryExpanded = document.getElementById("categoryExpanded");
+    if (categoryExpanded.style.visibility === "visible") {
+      categoryExpanded.style.opacity = 0;
+      setTimeout(() => {
+        categoryExpanded.style.visibility = "hidden";
+      }, 200);
+    }
+  }
+
+  function addMovieClicked() {
+    setAddMovieActive(true);
+  }
+
   return (
     <div className="App">
       <div className="home" id="home">
         <div className="featured-img-shadow"></div>
-        <div className="popup-shadow"></div>
+        <animated.div className="popup-shadow" style={addMovieAnimation} onClick={() => setAddMovieActive(false)}></animated.div>
         <div className="container">
-        <Navbar />
-        <div className="modal-container">
-          <div className="cross">&times;</div>
+        <Navbar addMovieClicked={addMovieClicked} />
+        <animated.div className="modal-container" style={addMovieAnimation} onClick={() => handleCategoryExit()}>
+          <div className="cross" onClick={() => setAddMovieActive(false)}>&times;</div>
             <div className="dropzone">
                 <input className="disabled-input"/>
                 <p className="dropzone-text">
@@ -116,7 +141,85 @@ function App() {
                 </div>
                 <div className="modal-input-container">
                     <div className="modal-input-title">CATEGORIA</div>
-                    <input type="text" className="modal-input"/>
+                    <input type="text" className="modal-input modal-input-option" value={""} onClick={() => handleCategoryOpen()} />
+                    <div className="modal-input-category-expanded" id="categoryExpanded">
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Acción</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Animación</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Aventura</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Ciencia Ficción</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Comedia</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Documental</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Crimen</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Drama</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Familia</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Fantasía</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Historia</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Terror</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Música</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Misterio</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Romance</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Pelicula de TV</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Suspenso</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Bélica</div>
+                        <hr className="category-hr"/>
+                      </div>
+                      <div className="category-container" onClick={() => handleCategoryExit()}>
+                        <div className="category-name">Western</div>
+                        <hr className="category-hr"/>
+                      </div>
+                    </div>
                 </div>
             </div>
             <div className="button-container">
@@ -124,7 +227,7 @@ function App() {
                   Subir Película
               </button>
             </div>
-        </div>
+        </animated.div>
         </div>
           <div className="container align-center-container">
             <div className="movie-info-box">
