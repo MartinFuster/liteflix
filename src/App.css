@@ -41,6 +41,15 @@ body {
   background-image: linear-gradient(to top, transparent 77%, rgba(0, 0, 0, 0.8));
   outline: none; }
 
+.popup-shadow {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  outline: none;
+  z-index: 9998; }
+
 .logo {
   margin-right: 2rem;
   z-index: 10;
@@ -259,6 +268,70 @@ body {
   color: white;
   font-size: 1.3rem; }
 
+.disabled-input {
+  position: absolute;
+  top: 0; }
+
+.clip {
+  margin-right: .7rem; }
+
+.dropzone-text {
+  font-size: 1.6rem;
+  color: #9b9b9b; }
+
+.dropzone-text-highlight {
+  font-weight: 700;
+  color: #0076ff; }
+
+.modal-input-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #9b9b9b;
+  letter-spacing: .5rem; }
+
+.modal-input {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  border-bottom: 1px black solid;
+  font-size: 1.6rem;
+  color: black;
+  font-weight: 500;
+  outline: none;
+  transition: all .2s linear; }
+  .modal-input:focus {
+    border-bottom: 1px #0076ff solid; }
+
+.modal-btn {
+  font-size: 1.6rem;
+  color: white;
+  padding: 2.5rem 12rem;
+  border: none;
+  border-radius: 10rem;
+  background-color: black;
+  transition: all .2s linear; }
+  .modal-btn:hover {
+    transform: translateY(-0.2rem); }
+  .modal-btn:active {
+    outline-color: transparent; }
+  .modal-btn:focus {
+    outline-color: transparent; }
+
+.cross {
+  font-size: 2.75rem;
+  line-height: .7rem;
+  width: 1.5rem;
+  position: absolute;
+  top: 1.4rem;
+  right: 1rem;
+  transition: all .2s linear; }
+  .cross:hover {
+    cursor: pointer;
+    transform: rotate(-90deg); }
+
+.App {
+  position: relative; }
+
 .container {
   max-width: 1500px;
   position: relative; }
@@ -296,6 +369,9 @@ body {
 
 .flex {
   display: flex; }
+
+.flex-wrap {
+  flex-wrap: wrap; }
 
 .flex-center {
   display: flex;
@@ -444,5 +520,36 @@ body {
   min-width: 100%;
   transform: translateY(-3.5rem); }
 
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  padding: 3rem 3.5rem;
+  border-radius: 1rem; }
+
+.dropzone {
+  border: 2px #9b9b9b dashed;
+  border-radius: 1rem;
+  padding: 4rem 14.8rem; }
+  .dropzone:hover {
+    cursor: pointer; }
+
+.modal-input-container {
+  flex: 1 0 45%;
+  margin-top: 3rem; }
+
+.button-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4.4rem; }
+
 .u-margin-top-1 {
   margin-top: 1rem; }
+
+.u-margin-right-3 {
+  margin-right: 3rem; }

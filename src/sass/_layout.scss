@@ -1,3 +1,7 @@
+.App {
+    position: relative;
+}
+
 .container {
     max-width: 1500px;
     position: relative;
@@ -41,6 +45,10 @@
 
 .flex {
     display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .flex-center {
@@ -216,4 +224,38 @@
     justify-content: center;
     min-width: 100%;
     transform: translateY(-3.5rem);
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: white;
+    padding: 3rem 3.5rem;
+    border-radius: 1rem;
+}
+
+.dropzone {
+    border: 2px #9b9b9b dashed;
+    border-radius: 1rem;
+    padding: 4rem 14.8rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.modal-input-container {
+    flex: 1 0 45%;
+    margin-top: 3rem;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4.4rem;
 }

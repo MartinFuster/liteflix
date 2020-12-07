@@ -6,6 +6,7 @@ import plus from "./images/plus-icon.svg";
 import SmallPreview from './components/SmallPreview';
 import LargePreview from './components/LargePreview';
 import axios from "axios";
+import clip from "./images/clip.svg";
 
 function App() {
 
@@ -96,8 +97,34 @@ function App() {
     <div className="App">
       <div className="home" id="home">
         <div className="featured-img-shadow"></div>
+        <div className="popup-shadow"></div>
         <div className="container">
         <Navbar />
+        <div className="modal-container">
+          <div className="cross">&times;</div>
+            <div className="dropzone">
+                <input className="disabled-input"/>
+                <p className="dropzone-text">
+                    <img src={clip} alt="Agregar Archivo" className="clip"/>
+                    <span className="dropzone-text-highlight">Agregar Archivo</span> o arrastrarlo y soltarlo aquí
+                </p>
+            </div>
+            <div className="flex flex-wrap">
+                <div className="modal-input-container u-margin-right-3">
+                    <div className="modal-input-title">NOMBRE DE LA PELÍCULA</div>
+                    <input type="text" className="modal-input"/>
+                </div>
+                <div className="modal-input-container">
+                    <div className="modal-input-title">CATEGORIA</div>
+                    <input type="text" className="modal-input"/>
+                </div>
+            </div>
+            <div className="button-container">
+              <button type="submit" className="modal-btn">
+                  Subir Película
+              </button>
+            </div>
+        </div>
         </div>
           <div className="container align-center-container">
             <div className="movie-info-box">
@@ -140,7 +167,7 @@ function App() {
               const linkData = object.poster_path;
               const link = "https://image.tmdb.org/t/p/original/"+linkData;
               const genreID = object.genre_ids[0];
-                return <SmallPreview movie={link} genreID={genreID} title={object.original_title} id={i} />
+                return <SmallPreview movie={link} genreID={genreID} title={object.original_title} key={i} />
               })}
             </div>
           </div>
@@ -154,7 +181,7 @@ function App() {
               const linkData = object.poster_path;
               const link = "https://image.tmdb.org/t/p/original/"+linkData;
               const genreID = object.genre_ids[0];
-                return <LargePreview movie={link} genreID={genreID} title={object.original_title} id={i} />
+                return <LargePreview movie={link} genreID={genreID} title={object.original_title} key={i} />
               })}
             </div>
           </div>

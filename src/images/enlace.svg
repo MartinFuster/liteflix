@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="108px" viewBox="0 0 108 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>CA9FB12C-5C2B-4672-82AA-0ED0B42F0F4C</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-13.2%" y="-21.7%" width="126.3%" height="150.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="25" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Maquetas" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Modal" transform="translate(-488.000000, -601.000000)" fill="#0076FF" stroke="#0076FF">
+            <g filter="url(#filter-1)" transform="translate(355.000000, 574.500000)" id="add">
+                <g transform="translate(35.000000, 30.000000)">
+                    <g id="clip" transform="translate(142.000000, 41.000000)">
+                        <path d="M18.7433,13.3852626 L8.94850003,4.48089903 C7.83872226,3.47209095 6.03961115,3.47209095 4.93010004,4.48089903 C3.82014449,5.48958589 3.82014449,7.12518185 4.93010004,8.13415154 L13.4693445,15.897101 L13.9713889,15.4402121 L5.43218893,7.67758589 C4.59983338,6.92093943 4.59983338,5.69415155 5.43218893,4.93750509 C6.26458893,4.18073741 7.61392226,4.18073741 8.44618892,4.93750509 L18.2412111,13.8418687 C19.6283667,15.1029192 19.6283667,17.1475657 18.2412111,18.4084545 C16.8538333,19.6696667 14.6049,19.6696667 13.2177445,18.4084545 L2.1672556,8.3627172 C0.225388942,6.59722226 0.225388942,3.73487883 2.1672556,1.96938388 C4.10943338,0.204090958 7.25805559,0.204090958 9.20005559,1.96938388 L17.7389,9.73233336 L18.2412111,9.27588892 L9.70174447,1.51293944 C7.48201115,-0.504717121 3.88338893,-0.504232273 1.66410005,1.51390914 C-0.555144389,3.53188893 -0.554611056,6.80336367 1.66516672,8.82085861 L12.7157,18.8650606 C14.3801,20.3783131 17.0788556,20.3783131 18.7433,18.8650606 C20.4078778,17.3518081 20.4078778,14.8985152 18.7433,13.3852626" id="Fill-1"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
