@@ -114,19 +114,29 @@ function App() {
     }
   }
 
-  function addMovieClicked() {
+  function addMovieOpen() {
     setAddMovieActive(true);
+    const app = document.getElementById("App");
+    document.documentElement.style.height = "100vh";
+    document.documentElement.style.overflow = "hidden";
+  }
+
+  function addMovieExit() {
+    setAddMovieActive(false);
+    const app = document.getElementById("App");
+    document.documentElement.style.height = "100%";
+    document.documentElement.style.overflowY = "auto";
   }
 
   return (
-    <div className="App">
+    <div className="App" id="App">
       <div className="home" id="home">
         <div className="featured-img-shadow"></div>
-        <animated.div className="popup-shadow" style={addMovieAnimation} onClick={() => setAddMovieActive(false)}></animated.div>
+        <animated.div className="popup-shadow" style={addMovieAnimation} onClick={() => addMovieExit()}></animated.div>
         <div className="container">
-        <Navbar addMovieClicked={addMovieClicked} />
+        <Navbar addMovieOpen={addMovieOpen} />
         <animated.div className="modal-container" style={addMovieAnimation} onClick={() => handleCategoryExit()}>
-          <div className="cross" onClick={() => setAddMovieActive(false)}>&times;</div>
+          <div className="cross" onClick={() => addMovieExit()}>&times;</div>
             <div className="dropzone">
                 <input className="disabled-input"/>
                 <p className="dropzone-text">

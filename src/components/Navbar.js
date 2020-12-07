@@ -20,7 +20,7 @@ function Navbar(props) {
                         <div className="link">Películas</div>
                         <div className="link">Agregados Recientemente</div>
                         <div className="link">Mi lista</div>
-                        <div className="link" onClick={() => props.addMovieClicked()} >
+                        <div className="link" onClick={() => props.addMovieOpen()} >
                             <div className="flex-center add-movie-container">
                             <div className="circle">
                                 <img src={plus} alt="plus icon"/>
