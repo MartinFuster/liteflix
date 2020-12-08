@@ -309,6 +309,17 @@
     color: #0076ff;
 }
 
+.dropzone-text-error {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.dropzone-text-bold {
+    font-weight: 700;
+}
+
 .modal-input-title {
     font-size: 1.2rem;
     font-weight: 500;
@@ -393,5 +404,21 @@
     &:hover {
         color: black;
         cursor: pointer;
+    }
+}
+
+.try-again {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    font-weight: 700;
+    transition: all .2s linear;
+
+    &:hover {
+        cursor: pointer;
+        color: black;
     }
 }

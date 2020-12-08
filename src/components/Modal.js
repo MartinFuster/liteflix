@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import {useDropzone} from 'react-dropzone';
 import clip from "../images/clip.svg";
@@ -9,6 +9,11 @@ function Modal(props) {
   const [movieName, setMovieName] = useState("");
   const [movieCategory, setMovieCategory] = useState("");
   const [movieImage, setMovieImage] = useState("");
+  const [dropzoneErr, setDropzoneErr] = useState(false);
+  const [dropzoneSuccess, setDropzoneSuccess] = useState(false);
+  const [percentege, setPercentege] = useState(0);
+
+  let uploadErr = useRef(false);
 
   useEffect(() => {
     setAddMovieActive(props.addMovieActive);
@@ -48,10 +53,48 @@ function Modal(props) {
     props.addMovieExit();
   }
 
-  const onDrop = useCallback(acceptedFiles => {
+  function handleUploadCancelation() {
+    setMovieImage("");
+    uploadErr.current = true;
+    setDropzoneSuccess(false);
+    setDropzoneErr(true);
+  }
+
+  function handleUploadRetry () {
+    setPercentege(0);
+    uploadErr.current = false;
+    setDropzoneErr(false);
+  }
+
+  function loadingAnimation (img) {
+    let i = 0;
+    const progressBar = document.getElementById("progressBar");
+    const interval = setInterval(() => {
+      if (uploadErr.current) {
+        clearInterval(interval);
+      }
+      if (i <= 100 && !uploadErr.current) {
+        progressBar.style.width = i + "%";
+        setPercentege(i);
+        i++;
+      } else if (!uploadErr.current) {
+        setMovieImage(img);
+        clearInterval(interval);
+      }
+    }, 20);
+  }
+
+ 
+
+  const onDrop = (acceptedFiles) => {
+    if (acceptedFiles.length !== 0) {
       const img = URL.createObjectURL(acceptedFiles[0]);
-      setMovieImage(img);
-  }, [])
+      setDropzoneSuccess(true);
+      loadingAnimation(img);
+    } else {
+      setDropzoneErr(true);
+    }
+  }
   const {
     getRootProps,
     getInputProps,
@@ -67,13 +110,42 @@ function Modal(props) {
     return(
         <animated.div className="modal-container" style={addMovieAnimation} onClick={() => handleCategoryExit()}>
           <div className="cross" onClick={() => addMovieExit()}>&times;</div>
-            <div {...getRootProps({className: "dropzone"})}>
+            { dropzoneErr ? 
+            (<div className="dropzone dropzone-failure">
+            <p className="dropzone-text dropzone-text-error">
+                <span className="bold">Error!</span> No se pudo cargar la película
+            </p>
+            <div className="loading-bar">
+              <div className="loading-bar loading-bar-red"></div>
+            </div>
+            <div className="try-again-container">
+              <h4 className="try-again" onClick={() => handleUploadRetry()} >REINTENTAR</h4>
+            </div>
+          </div>) : dropzoneSuccess ? (
+              <div className="dropzone dropzone-failure">
+              { percentege === 100 ?
+                (<p className="dropzone-text dropzone-text-error dropzone-text-bold">
+                  100% Cargado
+              </p>) : 
+              (<p className="dropzone-text dropzone-text-error">
+                  Cargando {percentege}%
+              </p>)}
+              <div className="loading-bar">
+                <div className="loading-bar loading-bar-green" id="progressBar"></div>
+              </div>
+              <div className="try-again-container">
+                <h4 className="try-again" onClick={() => handleUploadCancelation()} >{percentege < 100 ? "CANCELAR" : null }</h4>
+              </div>
+            </div>
+            ) : !dropzoneSuccess && !dropzoneErr ? (
+              <div {...getRootProps({className: isDragAccept ? "dropzone dropzone-accept" : isDragReject ? "dropzone dropzone-reject" : "dropzone"})}>
                 <input {...getInputProps()}/>
                 <p className="dropzone-text">
                     <img src={clip} alt="Agregar Archivo" className="clip"/>
                     <span className="dropzone-text-highlight">Agregar Archivo</span> o arrastrarlo y soltarlo aquí
                 </p>
-            </div>
+            </div> ) : null
+            }
             <div className="flex flex-wrap">
                 <div className="modal-input-container u-margin-right-3">
                     <div className="modal-input-title">NOMBRE DE LA PELÍCULA</div>
@@ -163,7 +235,10 @@ function Modal(props) {
                 </div>
             </div>
             <div className="button-container">
-              <button type="submit" className={movieName !== "" && movieCategory !== "" && movieImage !== "" ? "modal-btn" : "modal-btn modal-btn-disabled"} disabled={movieName !== "" && movieCategory !== "" && movieImage !== "" ? false : true} >
+              <button type="submit" 
+              className={movieName !== "" && movieCategory !== "" && movieImage !== "" ? "modal-btn" : 
+              "modal-btn modal-btn-disabled"} 
+              disabled={movieName !== "" && movieCategory !== "" && movieImage !== "" ? false : true} >
                   Subir Película
               </button>
             </div>

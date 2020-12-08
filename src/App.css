@@ -279,6 +279,15 @@ body {
   font-weight: 700;
   color: #0076ff; }
 
+.dropzone-text-error {
+  font-size: 1.2rem;
+  color: black;
+  margin-bottom: 1rem;
+  font-weight: 500; }
+
+.dropzone-text-bold {
+  font-weight: 700; }
+
 .modal-input-title {
   font-size: 1.2rem;
   font-weight: 500;
@@ -344,6 +353,19 @@ body {
   .category-name:hover {
     color: black;
     cursor: pointer; }
+
+.try-again {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  font-weight: 700;
+  transition: all .2s linear; }
+  .try-again:hover {
+    cursor: pointer;
+    color: black; }
 
 .App {
   position: relative; }
@@ -544,14 +566,32 @@ body {
   z-index: 9999;
   background-color: white;
   padding: 3rem 3.5rem;
-  border-radius: 1rem; }
+  border-radius: 1rem;
+  min-width: 75rem; }
 
 .dropzone {
   border: 2px #9b9b9b dashed;
   border-radius: 1rem;
-  padding: 4rem 14.8rem; }
+  padding: 4rem 14.8rem;
+  transition: all .2s linear; }
   .dropzone:hover {
     cursor: pointer; }
+
+.dropzone-active {
+  border: 2px black solid; }
+
+.dropzone-accept {
+  border: 2px #0076ff solid; }
+
+.dropzone-reject {
+  border: 2px #ff0000 solid; }
+
+.dropzone-failure {
+  background-color: #f3f3f3;
+  border: none;
+  padding: 1.5rem 3rem; }
+  .dropzone-failure:hover {
+    cursor: initial; }
 
 .modal-input-container {
   position: relative;
@@ -564,6 +604,12 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 4.4rem; }
+
+.try-again-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .modal-input-category-expanded {
   visibility: hidden;
@@ -584,6 +630,19 @@ body {
   max-height: 26rem;
   overflow-y: auto;
   transition: all .3s linear; }
+
+.loading-bar {
+  position: relative;
+  background-color: #dedede;
+  height: 2rem;
+  border-radius: 1rem; }
+
+.loading-bar-red {
+  background-color: #ff0000; }
+
+.loading-bar-green {
+  background-color: #7ed321;
+  width: 0%; }
 
 .u-margin-top-1 {
   margin-top: 1rem; }
