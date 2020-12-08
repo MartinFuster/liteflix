@@ -295,11 +295,6 @@
     font-size: 1.3rem;
 }
 
-.disabled-input {
-    position: absolute;
-    top: 0;
-}
-
 .clip {
     margin-right: .7rem;
 }
@@ -367,6 +362,10 @@
     &:focus {
         outline-color: transparent;
     }
+}
+
+.modal-btn-disabled {
+    background-color: #dedede;
 }
 
 .cross {

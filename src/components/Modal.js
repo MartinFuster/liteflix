@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
+import {useDropzone} from 'react-dropzone';
 import clip from "../images/clip.svg";
 
 function Modal(props) {
     
   const [addMovieActive, setAddMovieActive] = useState(false);
+  const [movieName, setMovieName] = useState("");
   const [movieCategory, setMovieCategory] = useState("");
+  const [movieImage, setMovieImage] = useState("");
 
   useEffect(() => {
     setAddMovieActive(props.addMovieActive);
@@ -44,12 +47,28 @@ function Modal(props) {
     handleCategoryExit();
     props.addMovieExit();
   }
+
+  const onDrop = useCallback(acceptedFiles => {
+      const img = URL.createObjectURL(acceptedFiles[0]);
+      setMovieImage(img);
+  }, [])
+  const {
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    isDragAccept,
+    isDragReject
+  } = useDropzone({
+    accept: 'image/*',
+    maxFiles: 1,
+    onDrop
+  });
   
     return(
         <animated.div className="modal-container" style={addMovieAnimation} onClick={() => handleCategoryExit()}>
           <div className="cross" onClick={() => addMovieExit()}>&times;</div>
-            <div className="dropzone">
-                <input className="disabled-input"/>
+            <div {...getRootProps({className: "dropzone"})}>
+                <input {...getInputProps()}/>
                 <p className="dropzone-text">
                     <img src={clip} alt="Agregar Archivo" className="clip"/>
                     <span className="dropzone-text-highlight">Agregar Archivo</span> o arrastrarlo y soltarlo aquí
@@ -58,11 +77,11 @@ function Modal(props) {
             <div className="flex flex-wrap">
                 <div className="modal-input-container u-margin-right-3">
                     <div className="modal-input-title">NOMBRE DE LA PELÍCULA</div>
-                    <input type="text" className="modal-input"/>
+                    <input type="text" className="modal-input" value={movieName} onChange={(e) => setMovieName(e.target.value)} />
                 </div>
                 <div className="modal-input-container">
                     <div className="modal-input-title">CATEGORIA</div>
-                    <input type="text" className="modal-input modal-input-option" value={movieCategory} onClick={() => handleCategoryOpen()} />
+                    <input type="text" className="modal-input modal-input-option" readOnly={true} value={movieCategory} onClick={() => handleCategoryOpen()} />
                     <div className="modal-input-category-expanded" id="categoryExpanded">
                       <div className="category-container" onClick={() => handleCategorySelection("Acción")}>
                         <div className="category-name">Acción</div>
@@ -144,7 +163,7 @@ function Modal(props) {
                 </div>
             </div>
             <div className="button-container">
-              <button type="submit" className="modal-btn">
+              <button type="submit" className={movieName !== "" && movieCategory !== "" && movieImage !== "" ? "modal-btn" : "modal-btn modal-btn-disabled"} disabled={movieName !== "" && movieCategory !== "" && movieImage !== "" ? false : true} >
                   Subir Película
               </button>
             </div>
