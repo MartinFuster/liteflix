@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import {useDropzone} from 'react-dropzone';
 import clip from "../images/clip.svg";
@@ -16,6 +16,7 @@ function Modal(props) {
   let uploadErr = useRef(false);
 
   useEffect(() => {
+    resetValues();
     setAddMovieActive(props.addMovieActive);
   }, [props.addMovieActive]);
 
@@ -47,9 +48,20 @@ function Modal(props) {
     }
   }
 
+  function resetValues() {
+    setMovieName("");
+    setMovieCategory("");
+    setMovieImage("");
+    setDropzoneErr(false);
+    setDropzoneSuccess(false);
+    setPercentege(0);
+    uploadErr.current = false;
+  }
+
   function addMovieExit() {
     setAddMovieActive(false);
     handleCategoryExit();
+    resetValues();
     props.addMovieExit();
   }
 
@@ -98,7 +110,6 @@ function Modal(props) {
   const {
     getRootProps,
     getInputProps,
-    isDragActive,
     isDragAccept,
     isDragReject
   } = useDropzone({
@@ -106,6 +117,17 @@ function Modal(props) {
     maxFiles: 1,
     onDrop
   });
+
+  function handleSubmit() {
+    const newMovie = {
+      title: movieName,
+      genre: movieCategory,
+      movie: movieImage
+    }
+      localStorage.setItem(localStorage.length + 1, JSON.stringify(newMovie));
+      props.addToMyMovies(newMovie);
+      resetValues();
+  }
   
     return(
         <animated.div className="modal-container" style={addMovieAnimation} onClick={() => handleCategoryExit()}>
@@ -236,6 +258,7 @@ function Modal(props) {
             </div>
             <div className="button-container">
               <button type="submit" 
+              onClick={() => handleSubmit()}
               className={movieName !== "" && movieCategory !== "" && movieImage !== "" ? "modal-btn" : 
               "modal-btn modal-btn-disabled"} 
               disabled={movieName !== "" && movieCategory !== "" && movieImage !== "" ? false : true} >

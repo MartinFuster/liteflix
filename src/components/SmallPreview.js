@@ -126,7 +126,7 @@ function SmallPreview(props) {
                       </div>
                     </div>
                     <div className="genre">
-                      {genre}
+                      {props.customGenre !== undefined ? props.customGenre : genre}
                     </div>
                   </div>
                     <div className="movie-info-down-arrow">

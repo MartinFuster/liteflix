@@ -16,6 +16,7 @@ function App() {
   const [movieDescription, setMovieDescription] = useState("");
   const [upcoming, setUpcoming] = useState([]);
   const [popular, setPopular] = useState([]);
+  const [myMovies, setMyMovies] = useState([]);
   const [addMovieActive, setAddMovieActive] = useState(false);
 
   const addMovieAnimation = useSpring({
@@ -97,6 +98,17 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    // Getting the localStorage movies and adding them to my movies list
+    let newMoviesArray = [];
+    for (let i = 0; i < localStorage.length; i++) {
+    let newMovie = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    console.log(newMovie);
+    newMoviesArray.push(newMovie);
+    }
+    setMyMovies(newMoviesArray);
+  }, []);
+
   function handleCategoryOpen() {
     const categoryExpanded = document.getElementById("categoryExpanded");
     setTimeout(() => {
@@ -130,6 +142,10 @@ function App() {
     document.documentElement.style.overflowY = "auto";
   }
 
+  function addToMyMovies(newMovie) {
+    setMyMovies([...myMovies, newMovie]);
+  }
+
   return (
     <div className="App" id="App">
       <div className="home" id="home">
@@ -137,7 +153,7 @@ function App() {
         <animated.div className="popup-shadow" style={addMovieAnimation} onClick={() => addMovieExit()}></animated.div>
         <div className="container">
         <Navbar addMovieOpen={addMovieOpen} />
-        <Modal addMovieActive={addMovieActive} addMovieExit={addMovieExit} />
+        <Modal addMovieActive={addMovieActive} addMovieExit={addMovieExit} addToMyMovies={addToMyMovies} />
         </div>
           <div className="container align-center-container">
             <div className="movie-info-box">
@@ -195,6 +211,18 @@ function App() {
               const link = "https://image.tmdb.org/t/p/original/"+linkData;
               const genreID = object.genre_ids[0];
                 return <LargePreview movie={link} genreID={genreID} title={object.original_title} key={i} />
+              })}
+            </div>
+          </div>
+
+          <div className="coming-soon-box">
+            {myMovies.length !== 0 ?
+            (<h2 className="coming-soon-title">
+              Mis películas 
+            </h2>) : null}
+            <div className="flex-four">
+              {myMovies.map((object, i) => {
+                return <SmallPreview movie={object.movie} customGenre={object.genre} title={object.title} key={i} />
               })}
             </div>
           </div>
