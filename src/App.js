@@ -210,7 +210,7 @@ function App() {
               const linkData = object.poster_path;
               const link = "https://image.tmdb.org/t/p/original/"+linkData;
               const genreID = object.genre_ids[0];
-                return <SmallPreview movie={link} genreID={genreID} title={object.original_title} key={i} />
+                return <SmallPreview movie={link} genreID={genreID} title={object.original_title} key={i}/>
               })}
             </div>
           </div>

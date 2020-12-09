@@ -91,22 +91,35 @@ body {
   border-radius: 50%;
   background-color: var(--color-primary);
   transform: translateY(0.8rem);
-  z-index: 1000; }
+  z-index: 2000;
+  transition: all .3s linear; }
 
-.add-movie-container:hover .hover-btn {
-  opacity: 1; }
+.circle:hover {
+  display: flex;
+  border-radius: 10rem;
+  width: 18rem; }
+  .circle:hover .hover-btn {
+    opacity: 1 !important;
+    visibility: visible !important; }
+
+.plus-icon {
+  position: absolute;
+  left: .9rem; }
 
 .hover-btn {
-  opacity: 0;
+  position: absolute;
+  left: 0;
+  min-width: 18rem;
+  opacity: 1;
   display: flex;
   align-items: center;
   border-radius: 10rem;
-  padding-left: 3rem;
   padding-right: 2rem;
   height: 3.5rem;
-  transform: translate(-3rem, 0.8rem);
-  background-color: var(--color-primary);
-  transition: all .2s linear; }
+  transform: translateX(4rem);
+  transition: all .2s linear;
+  opacity: 0 !important;
+  visibility: hidden !important; }
 
 .notification-active {
   position: absolute;
