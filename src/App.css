@@ -332,6 +332,11 @@ body {
 .modal-btn-disabled {
   background-color: #dedede; }
 
+.btn-thank-you {
+  position: absolute;
+  bottom: 2.7rem;
+  left: 3.5rem; }
+
 .cross {
   font-size: 2.75rem;
   line-height: .7rem;
@@ -343,6 +348,11 @@ body {
   .cross:hover {
     cursor: pointer;
     transform: rotate(-90deg); }
+
+.cross-black {
+  color: black;
+  top: 1.8rem;
+  right: 1.4rem; }
 
 .category-hr {
   color: #cccccc;
@@ -366,6 +376,13 @@ body {
   .try-again:hover {
     cursor: pointer;
     color: black; }
+
+.congrats {
+  font-size: 3.2rem;
+  font-weight: 500; }
+
+.thank-you-text {
+  font-size: 2.4rem; }
 
 .App {
   position: relative; }
@@ -643,6 +660,23 @@ body {
 .loading-bar-green {
   background-color: #7ed321;
   width: 0%; }
+
+.thank-you-poppup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 35rem;
+  background-color: #7ed321;
+  color: white; }
+
+.thank-you-liteflix {
+  position: absolute;
+  top: 2.7rem;
+  left: 3.5rem; }
+
+.thank-you-poppup-description {
+  max-width: 58rem;
+  transform: translateY(-2rem); }
 
 .u-margin-top-1 {
   margin-top: 1rem; }

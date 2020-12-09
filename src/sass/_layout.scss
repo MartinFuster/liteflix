@@ -328,3 +328,23 @@
     background-color: #7ed321;
     width: 0%;
 }
+
+.thank-you-poppup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 35rem;
+    background-color: #7ed321;
+    color: white;
+}
+
+.thank-you-liteflix {
+    position: absolute;
+    top: 2.7rem;
+    left: 3.5rem;
+}
+
+.thank-you-poppup-description {
+    max-width: 58rem;
+    transform: translateY(-2rem);
+}

@@ -103,7 +103,6 @@ function App() {
     let newMoviesArray = [];
     for (let i = 0; i < localStorage.length; i++) {
     let newMovie = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    console.log(newMovie);
     newMoviesArray.push(newMovie);
     }
     setMyMovies(newMoviesArray);

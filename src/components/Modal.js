@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import {useDropzone} from 'react-dropzone';
 import clip from "../images/clip.svg";
+import ThankYouPoppup from "./ThankYouPoppup";
 
 function Modal(props) {
     
@@ -12,6 +13,8 @@ function Modal(props) {
   const [dropzoneErr, setDropzoneErr] = useState(false);
   const [dropzoneSuccess, setDropzoneSuccess] = useState(false);
   const [percentege, setPercentege] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [thankYouPoppupActive, setThankYouPoppupActive] = useState(false);
 
   let uploadErr = useRef(false);
 
@@ -55,6 +58,7 @@ function Modal(props) {
     setDropzoneErr(false);
     setDropzoneSuccess(false);
     setPercentege(0);
+    setIsSubmitting(false);
     uploadErr.current = false;
   }
 
@@ -96,6 +100,11 @@ function Modal(props) {
     }, 20);
   }
 
+  function handleThankYouPoppupExit () {
+    setThankYouPoppupActive(false);
+    props.addMovieExit();
+  }
+
  
 
   const onDrop = (acceptedFiles) => {
@@ -119,6 +128,7 @@ function Modal(props) {
   });
 
   function handleSubmit() {
+    setIsSubmitting(true);
     const newMovie = {
       title: movieName,
       genre: movieCategory,
@@ -126,10 +136,13 @@ function Modal(props) {
     }
       localStorage.setItem(localStorage.length + 1, JSON.stringify(newMovie));
       props.addToMyMovies(newMovie);
-      resetValues();
+      setThankYouPoppupActive(true);
+      setAddMovieActive(false);
+      setIsSubmitting(false);
   }
   
     return(
+      <>
         <animated.div className="modal-container" style={addMovieAnimation} onClick={() => handleCategoryExit()}>
           <div className="cross" onClick={() => addMovieExit()}>&times;</div>
             { dropzoneErr ? 
@@ -261,11 +274,19 @@ function Modal(props) {
               onClick={() => handleSubmit()}
               className={movieName !== "" && movieCategory !== "" && movieImage !== "" ? "modal-btn" : 
               "modal-btn modal-btn-disabled"} 
-              disabled={movieName !== "" && movieCategory !== "" && movieImage !== "" ? false : true} >
+              disabled={movieName !== "" && movieCategory !== "" && movieImage !== "" && !isSubmitting ? false : true} >
                   Subir Película
               </button>
             </div>
         </animated.div>
+        <ThankYouPoppup 
+        thankYouPoppupActive={thankYouPoppupActive} 
+        backgroundShadowActive={props.addMovieActive}
+        handleThankYouPoppupExit={handleThankYouPoppupExit}
+        title={movieName}
+        category={movieCategory} 
+        />
+      </>
     );
 }
 
