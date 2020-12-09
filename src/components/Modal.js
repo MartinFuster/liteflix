@@ -109,9 +109,13 @@ function Modal(props) {
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length !== 0) {
-      const img = URL.createObjectURL(acceptedFiles[0]);
-      setDropzoneSuccess(true);
-      loadingAnimation(img);
+      const reader = new FileReader();
+      reader.readAsDataURL(acceptedFiles[0]);
+      reader.addEventListener("load", () => {
+        const img = reader.result;
+        setDropzoneSuccess(true);
+        loadingAnimation(img);
+      });
     } else {
       setDropzoneErr(true);
     }
