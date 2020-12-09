@@ -9,6 +9,7 @@ import LargePreview from './components/LargePreview';
 import axios from "axios";
 import Modal from "./components/Modal";
 import clip from "./images/clip.svg";
+import liteflix from "./images/liteflix-logo.svg";
 
 function App() {
 
@@ -23,7 +24,6 @@ function App() {
     opacity: addMovieActive ? 1 : 0,
     visibility: addMovieActive ? "visible" : "hidden",
   });
-
 
   useEffect(() => {
     axios
@@ -144,11 +144,26 @@ function App() {
   function addToMyMovies(newMovie) {
     setMyMovies([...myMovies, newMovie]);
   }
+  window.onload = onLoad;
+
+  function onLoad () {
+    document.documentElement.style.height = "100%";
+    document.documentElement.style.overflowY = "auto";
+    const loadAnimation = document.getElementById("loadAnimation");
+    loadAnimation.click();
+    loadAnimation.style.opacity = 0;
+    setTimeout(() => {
+      loadAnimation.style.display = "none";
+    }, 800);
+  }
 
   return (
     <div className="App" id="App">
       <div className="home" id="home">
         <div className="featured-img-shadow"></div>
+        <div className="load-animation" id="loadAnimation">
+          <img src={liteflix} alt="Liteflix" className="liteflix-loading" id="lifelixLoading"/>
+        </div>
         <animated.div className="popup-shadow" style={addMovieAnimation} onClick={() => addMovieExit()}></animated.div>
         <div className="container">
         <Navbar addMovieOpen={addMovieOpen} />

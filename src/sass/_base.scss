@@ -19,6 +19,8 @@
     box-sizing: border-box;
     font-size: 62.5%; // That way 1 rem = 10px.
     overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
   }
   
   body {

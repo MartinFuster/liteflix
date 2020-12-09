@@ -11,7 +11,7 @@ function Navbar(props) {
 
     return( 
                 <nav className="nav">
-                    <div className="logo">
+                    <div className="logo" onClick={() => window.location.href = "/"}>
                         <img src={logo} alt="liteflix logo"/>
                     </div>
                     <div className="links">
