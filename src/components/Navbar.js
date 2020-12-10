@@ -9,15 +9,6 @@ import chivronDown from "../images/chivron-down.svg";
 
 function Navbar(props) {
 
-    function handleHoverEnter() {
-        const hoverOptions = document.getElementById("hoverOptions");
-        if (hoverOptions !== null) {
-            setTimeout(() => {
-                hoverOptions.style.opacity = 1;
-            }, 800);
-        }
-    }
-
     return( 
                 <nav className="nav">
                     <div className="logo" onClick={() => window.location.href = "/"}>
@@ -31,7 +22,7 @@ function Navbar(props) {
                         <div className="link">Mi lista</div>
                         <div className="link" onClick={() => props.addMovieOpen()} >
                             <div className="flex-center add-movie-container" >
-                                <div className="circle" onMouseEnter={handleHoverEnter()}>
+                                <div className="circle">
                                     <img src={plus} alt="plus icon" className="plus-icon"/>
                                     <div className="hover-btn" id="hoverOptions">
                                     Agregar Película

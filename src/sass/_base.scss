@@ -14,12 +14,31 @@
   *::before {
     box-sizing: inherit;
   }
+
+  @mixin media($breakpoint) {
+
+    @if $breakpoint == mobile-981 {
+      @media only screen and (max-width: 61.3125em) {
+        @content;
+        //981px
+      }
+    }
+
+    @if $breakpoint == mobile-614 {
+      @media only screen and (max-width: 38.375em) {
+        @content;
+        //614px
+      }
+    }
+  
+  }
+  
   
   html {
     box-sizing: border-box;
     font-size: 62.5%; // That way 1 rem = 10px.
     overflow-x: hidden;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
   }
   
@@ -28,5 +47,5 @@
     font-weight: 400;
     line-height: 1.6;
     background-repeat: no-repeat;
-    background-color: black;
+    overflow-x: hidden;
   }

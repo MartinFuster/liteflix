@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSpring, animated } from "react-spring";
 import './App.css';
 import Navbar from './components/Navbar';
+import NavbarMobile from './components/NavbarMobile';
 import play from "./images/play-icon.svg";
 import plus from "./images/plus-icon.svg";
 import SmallPreview from './components/SmallPreview';
@@ -167,6 +168,7 @@ function App() {
         <animated.div className="popup-shadow" style={addMovieAnimation} onClick={() => addMovieExit()}></animated.div>
         <div className="container">
         <Navbar addMovieOpen={addMovieOpen} />
+        <NavbarMobile addMovieOpen={addMovieOpen} />
         <Modal addMovieActive={addMovieActive} addMovieExit={addMovieExit} addToMyMovies={addToMyMovies} />
         </div>
           <div className="container align-center-container">
@@ -182,9 +184,9 @@ function App() {
                   <img src={play} alt="Reproducir" className="featured-movie-icon"/>
                   Reproducir
                 </button>
-                <button className="featured-movie-btn">
+                <button className="featured-movie-btn featured-movie-btn-mobile">
                   <img src={plus} alt="Agregar" className="featured-movie-icon"/>
-                  Mi Lista
+                  {window.innerWidth > 981 ? "Mi Lista" : null} 
                 </button>
               </div>
               <div className="featured-movie-resume-box">
