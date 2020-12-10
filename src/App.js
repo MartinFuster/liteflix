@@ -9,7 +9,6 @@ import SmallPreview from './components/SmallPreview';
 import LargePreview from './components/LargePreview';
 import axios from "axios";
 import Modal from "./components/Modal";
-import clip from "./images/clip.svg";
 import liteflix from "./images/liteflix-logo.svg";
 
 function App() {
@@ -109,14 +108,6 @@ function App() {
     setMyMovies(newMoviesArray);
   }, []);
 
-  function handleCategoryOpen() {
-    const categoryExpanded = document.getElementById("categoryExpanded");
-    setTimeout(() => {
-      categoryExpanded.style.visibility = "visible";
-    }, 50);
-    categoryExpanded.style.opacity = 1;
-  }
-
   function handleCategoryExit() {
     const categoryExpanded = document.getElementById("categoryExpanded");
     if (categoryExpanded.style.visibility === "visible") {
@@ -129,7 +120,6 @@ function App() {
 
   function addMovieOpen() {
     setAddMovieActive(true);
-    const app = document.getElementById("App");
     document.documentElement.style.height = "100vh";
     document.documentElement.style.overflow = "hidden";
   }
@@ -137,7 +127,6 @@ function App() {
   function addMovieExit() {
     setAddMovieActive(false);
     handleCategoryExit();
-    const app = document.getElementById("App");
     document.documentElement.style.height = "100%";
     document.documentElement.style.overflowY = "auto";
   }

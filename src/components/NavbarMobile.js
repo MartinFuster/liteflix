@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../images/liteflix-logo.svg";
 import plus from "../images/plus-icon.svg";
 import bell from "../images/bell-icon.svg";
-import profilePicture from "../images/main-profile-img.svg";
 import profilePictureTwo from "../images/user-2.svg";
-import profilePictureDefault from "../images/user-default.svg";
-import chivronDown from "../images/chivron-down.svg";
 import hamburguer from "../images/hamburguer.svg";
 
 function NavbarMobile(props) {
