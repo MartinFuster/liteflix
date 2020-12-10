@@ -162,6 +162,7 @@ function App() {
     <div className="App" id="App">
       <div className="home" id="home">
         <div className="featured-img-shadow"></div>
+        <div className="mobile-fade"></div>
         <div className="load-animation" id="loadAnimation">
           <img src={liteflix} alt="Liteflix" className="liteflix-loading" id="lifelixLoading"/>
         </div>
@@ -202,7 +203,6 @@ function App() {
       </div>
       <div className="recommended">
         <div className="container">
-
           <div className="coming-soon-box">
             <h2 className="coming-soon-title">
               Próximamente

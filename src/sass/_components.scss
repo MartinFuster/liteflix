@@ -408,6 +408,10 @@
 .dropzone-text {
     font-size: 1.6rem;
     color: #9b9b9b;
+
+    @include media(desktop-1505) {
+        text-align: center;
+    }
 }
 
 .dropzone-text-highlight {
@@ -431,6 +435,10 @@
     font-weight: 500;
     color: #9b9b9b;
     letter-spacing: .5rem;
+
+    @include media(mobile-981) {
+        font-size: 1rem;
+    }
 }
 
 .modal-input {
@@ -478,6 +486,10 @@
 
     &:focus {
         outline-color: transparent;
+    }
+
+    @include media (mobile-614) {
+        padding: 2.5rem 6rem;
     }
 }
 
@@ -544,10 +556,18 @@
 .congrats {
     font-size: 3.2rem;
     font-weight: 500;
+
+    @include media (mobile-445) {
+        font-size: 2.6rem;
+    }
 }
 
 .thank-you-text {
     font-size: 2.4rem;
+
+    @include media (mobile-445) {
+        font-size: 1.8rem;
+    }
 }
 
 .liteflix-loading {

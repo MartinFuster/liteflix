@@ -17,6 +17,13 @@
 
   @mixin media($breakpoint) {
 
+    @if $breakpoint == desktop-1505 {
+      @media only screen and (max-width: 94.0625em) {
+        @content;
+        //1505px
+      }
+    }
+
     @if $breakpoint == mobile-1140 {
       @media only screen and (max-width: 71.25em) {
         @content;
@@ -42,6 +49,13 @@
       @media only screen and (max-width: 35.4375em) {
         @content;
         //567px
+      }
+    }
+
+    @if $breakpoint == mobile-445 {
+      @media only screen and (max-width: 27.8125em) {
+        @content;
+        //445px
       }
     }
 
