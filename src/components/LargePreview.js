@@ -127,7 +127,7 @@ function LargePreview(props) {
                       <img src={chivronDown} alt="Down arrow" className="down-arrow-big"/>
                     </div>
                   <div className="like-button-container">
-                    <div className="like-circle engagement-btn">
+                    <div className="like-circle engagement-btn engagement-btn-mobile-large">
                       <img src={like} alt="Like" className="like"/>
                     </div>
                   </div>

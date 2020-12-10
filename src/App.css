@@ -32,7 +32,8 @@ body {
   font-weight: 400;
   line-height: 1.6;
   background-repeat: no-repeat;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  background-color: black; }
 
 .featured-img {
   height: 88vh;
@@ -309,11 +310,19 @@ body {
   .engagement-btn:hover {
     filter: brightness(100%); }
 
+@media only screen and (max-width: 25.625em) {
+  .engagement-btn-mobile-large {
+    display: none; } }
+
 .movie-info-name {
   font-size: 1.8rem;
   font-weight: 700;
   color: white;
   line-height: 2.5rem; }
+  @media only screen and (max-width: 35.4375em) {
+    .movie-info-name {
+      font-size: 1.6rem;
+      max-width: 15rem; } }
 
 .general-info-margin {
   margin-right: 1rem; }
@@ -330,6 +339,9 @@ body {
 .genre {
   font-size: 1.3rem;
   color: white; }
+  @media only screen and (max-width: 20.3125em) {
+    .genre {
+      font-size: 1.2rem; } }
 
 .genre-alt {
   margin-bottom: 3rem; }
@@ -343,6 +355,9 @@ body {
 .match {
   color: white;
   font-size: 1.3rem; }
+  @media only screen and (max-width: 20.3125em) {
+    .match {
+      font-size: 1.2rem; } }
 
 .clip {
   margin-right: .7rem; }
@@ -641,11 +656,27 @@ body {
 .coming-soon-movie-box {
   position: relative;
   flex: 1 0 21%;
-  max-width: 33.5rem;
-  max-height: 45rem;
+  max-width: calc(25% - 3rem);
+  height: 45rem;
   margin-bottom: 8rem;
   margin-right: 3rem;
   object-fit: cover; }
+  @media only screen and (max-width: 71.25em) {
+    .coming-soon-movie-box {
+      flex: 1 0 50%;
+      margin-right: 1rem;
+      margin-bottom: 3rem;
+      max-width: calc(50% - 1rem);
+      max-height: 70rem; } }
+
+@media only screen and (max-width: 35.4375em) {
+  .movie-box-mobile {
+    flex: 1 0 100%;
+    max-width: calc(100% - 1rem);
+    max-height: 38rem; } }
+
+.movie-box-margin {
+  margin-right: 3rem; }
 
 .coming-soon-movie-box:hover .hover-items {
   opacity: 1; }
@@ -655,6 +686,9 @@ body {
   max-height: none;
   background-repeat: no-repeat;
   margin-bottom: 4rem; }
+  @media only screen and (max-width: 35.4375em) {
+    .popular-movie-box {
+      height: 35rem; } }
 
 .fade-shadow {
   position: absolute;
@@ -701,6 +735,9 @@ body {
   color: white;
   font-size: 1.3rem;
   line-height: 0; }
+  @media only screen and (max-width: 20.3125em) {
+    .general-info {
+      font-size: 1.2rem; } }
 
 .hover-items {
   opacity: 0;

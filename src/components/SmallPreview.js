@@ -96,7 +96,7 @@ function SmallPreview(props) {
     });
 
     return (
-        <div className="coming-soon-movie-box">
+        <div className="coming-soon-movie-box movie-box-mobile">
                 <img src={props.movie} alt={props.title} className="coming-soon-img"/>
                 <div className="hover-items">
                   <div className="fade-shadow"></div>

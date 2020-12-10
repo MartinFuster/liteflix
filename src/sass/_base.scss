@@ -17,6 +17,13 @@
 
   @mixin media($breakpoint) {
 
+    @if $breakpoint == mobile-1140 {
+      @media only screen and (max-width: 71.25em) {
+        @content;
+        //1140px
+      }
+    }
+
     @if $breakpoint == mobile-981 {
       @media only screen and (max-width: 61.3125em) {
         @content;
@@ -28,6 +35,27 @@
       @media only screen and (max-width: 38.375em) {
         @content;
         //614px
+      }
+    }
+
+    @if $breakpoint == mobile-567 {
+      @media only screen and (max-width: 35.4375em) {
+        @content;
+        //567px
+      }
+    }
+
+    @if $breakpoint == mobile-410 {
+      @media only screen and (max-width: 25.625em) {
+        @content;
+        //410px
+      }
+    }
+
+    @if $breakpoint == mobile-325 {
+      @media only screen and (max-width: 20.3125em) {
+        @content;
+        //325px
       }
     }
   
@@ -48,4 +76,5 @@
     line-height: 1.6;
     background-repeat: no-repeat;
     overflow-x: hidden;
+    background-color: black;
   }

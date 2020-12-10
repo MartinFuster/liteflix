@@ -339,11 +339,22 @@
     }
 }
 
+.engagement-btn-mobile-large {
+    @include media(mobile-410) {
+        display: none;
+    }
+}
+
 .movie-info-name {
     font-size: 1.8rem;
     font-weight: 700;
     color: white;
     line-height: 2.5rem;
+
+    @include media(mobile-567) {
+        font-size: 1.6rem;
+        max-width: 15rem;
+    }
 }
 
 .general-info-margin {
@@ -363,6 +374,10 @@
 .genre {
     font-size: 1.3rem;
     color: white;
+
+    @include media(mobile-325) {
+        font-size: 1.2rem;
+    }
 }
 
 .genre-alt {
@@ -380,6 +395,10 @@
 .match {
     color: white;
     font-size: 1.3rem;
+
+    @include media(mobile-325) {
+        font-size: 1.2rem;
+    }
 }
 
 .clip {

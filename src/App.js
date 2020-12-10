@@ -237,7 +237,8 @@ function App() {
               Mis películas 
             </h2>) : null}
             <div className="flex-four">
-              {myMovies.map((object, i) => {
+              {
+              myMovies.map((object, i) => {
                 return <SmallPreview movie={object.movie} customGenre={object.genre} title={object.title} key={i} />
               })}
             </div>
